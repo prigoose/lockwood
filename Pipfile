@@ -8,6 +8,7 @@ sqlalchemy = "*"
 pandas = "*"
 psycopg2 = "*"
 cherrypicker = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"

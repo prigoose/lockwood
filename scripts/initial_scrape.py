@@ -48,7 +48,7 @@ def index_firms():
         "entityTypes": [],
     }
 
-    for letter in string.ascii_lowercase[4:]:
+    for letter in string.ascii_lowercase[:4]:
         body["query"] = letter  # 'a'
 
         count = PAGE_SIZE + 9999  # make count larger than PAGE_SIZE
@@ -65,12 +65,12 @@ def index_firms():
             skip += PAGE_SIZE
             body["skip"] = skip
 
-        with open("bandit/bandit/firms.json", "r") as firmsjson:
+        with open("data/aug15-2022/firms.json", "r") as firmsjson:
             firms = json.load(firmsjson)
 
         firms.extend(results)
 
-        with open("bandit/bandit/firms.json", "w") as firmsjson:
+        with open("data/aug15-2022/firms.json", "w") as firmsjson:
             json.dump(firms, firmsjson, indent=4)
             print(f"appended the letter {letter}")
 
